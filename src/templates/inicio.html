@@ -1,0 +1,40 @@
+ {%  extends 'base.html' %}
+ {% load crispy_forms_tags %}
+
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{ titulo }}</h1>
+    {%  block jumbotron %}
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-6">
+            <h1>Probar Django</h1>
+            <p class="lead">Un proyecto para principiantes. El objetivo es construir una página web simple a la par que elegante en muy poco tiempo</p>
+            <a class="btn btn-lg btn-primary" href="../../components/navbar/" role="button">Únete &raquo;</a>
+            </div>
+            <div class="col-sm-6" style="background-color: black;height: 300px"></div>
+        </div>
+    </div>
+    {% endblock %}
+
+    {%  block content %}
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3">
+                <form method="POST" action="">{% csrf_token %}
+                    {{ el_form|crispy}}
+                    <input type="submit" value="Registrame">
+                </form>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>
